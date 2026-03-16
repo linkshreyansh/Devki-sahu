@@ -74,6 +74,8 @@
             text-decoration: none;
             border-radius: 50px;
             font-size: 20px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
         }
         .btn:hover {
             background: transparent;
@@ -89,6 +91,12 @@
             font-size: 24px;
             margin-top: 20px;
             font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        .btn-large:hover {
+            background: #FF6F61;
+            transform: scale(1.05);
         }
         .book-appointment {
             padding: 80px 20px;
@@ -135,6 +143,10 @@
             padding: 30px;
             background: #FFF0F5;
             border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
         }
         .feature-icon {
             font-size: 48px;
@@ -183,37 +195,7 @@
             justify-content: center;
             color: white;
             font-size: 24px;
-        }
-        .gallery {
-            padding: 80px 20px;
-            background: white;
-        }
-        .gallery h2 {
-            text-align: center;
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 50px;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .gallery-item {
-            background: linear-gradient(145deg, #B43E8F, #FF6F61);
-            height: 200px;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            transition: transform 0.3s;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
         .contact {
             padding: 80px 20px;
@@ -299,7 +281,6 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#gallery">Gallery</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -354,19 +335,6 @@
             <div class="about-image">
                 📸 Devki's Photo
             </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <h2>Moments from Classroom</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">Teaching 📚</div>
-            <div class="gallery-item">Fun Activity 🎨</div>
-            <div class="gallery-item">Happy Students 😊</div>
-            <div class="gallery-item">Learning Games 🎲</div>
-            <div class="gallery-item">Practical Demo 🔬</div>
-            <div class="gallery-item">Graduation 🎓</div>
         </div>
     </section>
 
