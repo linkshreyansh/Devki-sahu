@@ -1,136 +1,393 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2868
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devki Sahu - Teacher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .navbar {
+            background: #B43E8F;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497633762265-9d0c5d8b8b5b?w=1600');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        .hero .subtitle {
+            font-size: 28px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #FF6F61;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 20px;
+        }
+        .btn:hover {
+            background: transparent;
+            border: 2px solid white;
+        }
+        .btn-large {
+            display: inline-block;
+            padding: 20px 60px;
+            background: #B43E8F;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .book-appointment {
+            padding: 80px 20px;
+            background: #FFE4E1;
+            text-align: center;
+        }
+        .book-appointment h2 {
+            font-size: 48px;
+            color: #B43E8F;
+            margin-bottom: 20px;
+        }
+        .book-appointment p {
+            font-size: 22px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+        .philosophy {
+            padding: 80px 20px;
+            text-align: center;
+            background: white;
+        }
+        .philosophy h2 {
+            font-size: 48px;
+            color: #B43E8F;
+            margin-bottom: 20px;
+        }
+        .main-description {
+            font-size: 32px;
+            color: #FF6F61;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            padding: 30px;
+            background: #FFF0F5;
+            border-radius: 20px;
+        }
+        .feature-icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            font-size: 24px;
+            color: #B43E8F;
+            margin-bottom: 15px;
+        }
+        .about {
+            padding: 80px 20px;
+            background: #FFF0F5;
+        }
+        .about h2 {
+            text-align: center;
+            font-size: 48px;
+            color: #B43E8F;
+            margin-bottom: 50px;
+        }
+        .about-content {
+            display: flex;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .about-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(145deg, #FFD700, #FF6F61);
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        .gallery {
+            padding: 80px 20px;
+            background: white;
+        }
+        .gallery h2 {
+            text-align: center;
+            font-size: 48px;
+            color: #B43E8F;
+            margin-bottom: 50px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .gallery-item {
+            background: linear-gradient(145deg, #B43E8F, #FF6F61);
+            height: 200px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .contact {
+            padding: 80px 20px;
+            background: #FFE4E1;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 48px;
+            color: #B43E8F;
+            margin-bottom: 30px;
+        }
+        .contact-info {
+            background: white;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .contact-info p {
+            font-size: 22px;
+            margin: 15px 0;
+            color: #B43E8F;
+        }
+        .social-links {
+            margin-top: 30px;
+        }
+        .social-link {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px 25px;
+            border: 2px solid #B43E8F;
+            color: #B43E8F;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+        .social-link:hover {
+            background: #B43E8F;
+            color: white;
+        }
+        footer {
+            background: #B43E8F;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-size: 18px;
+        }
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .nav-links li {
+                margin: 10px 15px;
+            }
+            .hero h1 {
+                font-size: 50px;
+            }
+            .hero .subtitle {
+                font-size: 22px;
+            }
+            .main-description {
+                font-size: 24px;
+            }
+            .btn-large {
+                padding: 15px 40px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">🌸 Devki Sahu</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>Devki Sahu - Experienced Teacher</title>\
-    <link rel="stylesheet" href="style.css">\
-</head>\
-<body>\
-    <!-- Navigation -->\
-    <nav class="navbar">\
-        <div class="container">\
-            <div class="logo">\uc0\u55356 \u57144  Devki Sahu</div>\
-            <ul class="nav-links">\
-                <li><a href="#home">Home</a></li>\
-                <li><a href="#about">About</a></li>\
-                <li><a href="#gallery">Gallery</a></li>\
-                <li><a href="#contact">Contact</a></li>\
-            </ul>\
-        </div>\
-    </nav>\
-\
-    <!-- Home Section -->\
-    <section id="home" class="hero">\
-        <div class="container">\
-            <h1>Devki Sahu</h1>\
-            <p class="subtitle">An experienced teacher who can teach kids in an easy way with practical examples</p>\
-            <a href="#book" class="btn">\uc0\u55357 \u56517  Book an Appointment</a>\
-        </div>\
-    </section>\
-\
-    <!-- Book Appointment Section -->\
-    <section id="book" class="book-appointment">\
-        <div class="container">\
-            <h2>Book an Appointment</h2>\
-            <div class="book-content">\
-                <p>Ready to start your child's learning journey? Schedule a session today!</p>\
-                <a href="#contact" class="btn-large">\uc0\u55357 \u56538  Book Now</a>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- Teaching Philosophy Section -->\
-    <section id="philosophy" class="philosophy">\
-        <div class="container">\
-            <h2>My Teaching Approach</h2>\
-            <div class="philosophy-content">\
-                <p class="main-description">\
-                    Help kids understand easily without stress. Learn with fun!\
-                </p>\
-                <div class="features">\
-                    <div class="feature">\
-                        <span class="feature-icon">\uc0\u55358 \u56800 </span>\
-                        <h3>No Stress Learning</h3>\
-                        <p>Gentle, encouraging approach that builds confidence</p>\
-                    </div>\
-                    <div class="feature">\
-                        <span class="feature-icon">\uc0\u55356 \u57262 </span>\
-                        <h3>Learn with Fun</h3>\
-                        <p>Games, activities, and practical examples</p>\
-                    </div>\
-                    <div class="feature">\
-                        <span class="feature-icon">\uc0\u55357 \u56481 </span>\
-                        <h3>Easy Understanding</h3>\
-                        <p>Complex topics made simple and clear</p>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- About Section -->\
-    <section id="about" class="about">\
-        <div class="container">\
-            <h2>About Devki</h2>\
-            <div class="about-content">\
-                <div class="about-text">\
-                    <p>With years of experience in teaching, Devki Sahu has helped countless children discover the joy of learning. Her unique approach combines practical examples with fun activities to make every lesson memorable.</p>\
-                    <p>She believes that every child can learn anything when it's taught in the right way - with patience, creativity, and lots of encouragement.</p>\
-                </div>\
-                <div class="about-image">\
-                    <div class="image-placeholder">\uc0\u55357 \u56568  Devki's Photo</div>\
-                </div>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- Gallery Section -->\
-    <section id="gallery" class="gallery">\
-        <div class="container">\
-            <h2>Moments from Classroom</h2>\
-            <div class="gallery-grid">\
-                <div class="gallery-item">Teaching \uc0\u55357 \u56538 </div>\
-                <div class="gallery-item">Fun Activity \uc0\u55356 \u57256 </div>\
-                <div class="gallery-item">Happy Students \uc0\u55357 \u56842 </div>\
-                <div class="gallery-item">Learning Games \uc0\u55356 \u57266 </div>\
-                <div class="gallery-item">Practical Demo \uc0\u55357 \u56620 </div>\
-                <div class="gallery-item">Graduation \uc0\u55356 \u57235 </div>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- Contact Section -->\
-    <section id="contact" class="contact">\
-        <div class="container">\
-            <h2>Contact Me</h2>\
-            <div class="contact-info">\
-                <p>\uc0\u55357 \u56551  sahu.devki@gmail.com</p>\
-                <p>\uc0\u55357 \u56561  (555) 123-4567</p>\
-                <p>\uc0\u55357 \u56525  Your City, India</p>\
-            </div>\
-            <div class="social-links">\
-                <a href="#" class="social-link">\uc0\u55357 \u56536  Facebook</a>\
-                <a href="#" class="social-link">\uc0\u55357 \u56567  Instagram</a>\
-                <a href="#" class="social-link">\uc0\u55357 \u56508  LinkedIn</a>\
-            </div>\
-        </div>\
-    </section>\
-\
-    <!-- Footer -->\
-    <footer>\
-        <div class="container">\
-            <p>&copy; 2024 Made with \uc0\u55357 \u56470  for Devki Sahu | Teaching with love and patience</p>\
-        </div>\
-    </footer>\
-</body>\
-</html>\
-\
-}
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div>
+            <h1>Devki Sahu</h1>
+            <p class="subtitle">An experienced teacher who can teach kids in an easy way with practical examples</p>
+            <a href="#book" class="btn">📅 Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Book Appointment Section -->
+    <section id="book" class="book-appointment">
+        <h2>Book an Appointment</h2>
+        <p>Ready to start your child's learning journey? Schedule a session today!</p>
+        <a href="#contact" class="btn-large">📚 Book Now</a>
+    </section>
+
+    <!-- Teaching Philosophy Section -->
+    <section class="philosophy">
+        <h2>My Teaching Approach</h2>
+        <p class="main-description">Help kids understand easily without stress. Learn with fun!</p>
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">🧠</span>
+                <h3>No Stress Learning</h3>
+                <p>Gentle, encouraging approach that builds confidence</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎮</span>
+                <h3>Learn with Fun</h3>
+                <p>Games, activities, and practical examples</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💡</span>
+                <h3>Easy Understanding</h3>
+                <p>Complex topics made simple and clear</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>About Devki</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>With years of experience in teaching, Devki Sahu has helped countless children discover the joy of learning. Her unique approach combines practical examples with fun activities to make every lesson memorable.</p>
+                <p>She believes that every child can learn anything when it's taught in the right way - with patience, creativity, and lots of encouragement.</p>
+            </div>
+            <div class="about-image">
+                📸 Devki's Photo
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Moments from Classroom</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">Teaching 📚</div>
+            <div class="gallery-item">Fun Activity 🎨</div>
+            <div class="gallery-item">Happy Students 😊</div>
+            <div class="gallery-item">Learning Games 🎲</div>
+            <div class="gallery-item">Practical Demo 🔬</div>
+            <div class="gallery-item">Graduation 🎓</div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-info">
+            <p>📧 sahu.devki@gmail.com</p>
+            <p>📱 (555) 123-4567</p>
+            <p>📍 Your City, India</p>
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link">📘 Facebook</a>
+            <a href="#" class="social-link">📷 Instagram</a>
+            <a href="#" class="social-link">💼 LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Made with 💖 for Devki Sahu | Teaching with love and patience</p>
+    </footer>
+</body>
+</html>
