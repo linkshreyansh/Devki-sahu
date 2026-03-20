@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Appointment - Test</title>
+    <title>Book Appointment - Devki Sahu</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,25 +33,17 @@
             border-radius: 10px;
             cursor: pointer;
             font-size: 16px;
+            width: 100%;
         }
         button:hover {
             background: #FF6F61;
         }
-        .success {
-            background: #d4edda;
-            color: #155724;
+        .info {
+            background: #e8f4fd;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
-            display: none;
-        }
-        .error {
-            background: #f8d7da;
-            color: #721c24;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: none;
+            font-size: 14px;
         }
         h1 {
             color: #B43E8F;
@@ -61,17 +53,18 @@
 <body>
     <div class="form-container">
         <h1>📚 Book an Appointment</h1>
-        <p>Fill out this form to request an appointment with Devki Sahu.</p>
         
-        <div id="successMsg" class="success">✅ Appointment request sent! Check sahu.devki@gmail.com</div>
-        <div id="errorMsg" class="error">❌ Error sending. Please try again or email sahu.devki@gmail.com directly.</div>
+        <div class="info">
+            💡 When you submit, your email app will open with all details filled in.<br>
+            Just click SEND to confirm your appointment with Devki Sahu.
+        </div>
         
-        <form id="contactForm" action="https://formspree.io/f/mgonqdwv" method="POST">
-            <input type="text" name="name" placeholder="Your Full Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Phone Number" required>
-            <input type="date" name="date" required>
-            <select name="time" required>
+        <form id="appointmentForm">
+            <input type="text" id="name" placeholder="Your Full Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <input type="date" id="date" required>
+            <select id="time" required>
                 <option value="">Select Time</option>
                 <option>10:00 AM</option>
                 <option>11:00 AM</option>
@@ -79,46 +72,54 @@
                 <option>2:00 PM</option>
                 <option>3:00 PM</option>
                 <option>4:00 PM</option>
+                <option>5:00 PM</option>
             </select>
-            <textarea name="notes" rows="3" placeholder="Additional notes..."></textarea>
-            <input type="hidden" name="_subject" value="New Appointment Request">
-            <button type="submit">Send Appointment Request</button>
+            <input type="text" id="childName" placeholder="Child's Name (optional)">
+            <textarea id="notes" rows="3" placeholder="Additional notes..."></textarea>
+            
+            <button type="submit">📧 Send Appointment Request</button>
         </form>
-        <p style="margin-top: 20px;"><a href="index.html">← Back to Home</a></p>
+        <p style="margin-top: 20px; text-align: center;"><a href="index.html">← Back to Home</a></p>
     </div>
 
     <script>
-        const form = document.getElementById('contactForm');
-        const successMsg = document.getElementById('successMsg');
-        const errorMsg = document.getElementById('errorMsg');
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
         
-        form.addEventListener('submit', async function(e) {
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Hide messages
-            successMsg.style.display = 'none';
-            errorMsg.style.display = 'none';
+            // Get values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const childName = document.getElementById('childName').value;
+            const notes = document.getElementById('notes').value;
             
-            const formData = new FormData(form);
+            // Format date
+            const formattedDate = new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
             
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    successMsg.style.display = 'block';
-                    form.reset();
-                } else {
-                    errorMsg.style.display = 'block';
-                }
-            } catch (error) {
-                errorMsg.style.display = 'block';
-            }
+            // Create email
+            const subject = `Appointment Request from ${name}`;
+            let body = `NEW APPOINTMENT REQUEST\n\n`;
+            body += `Name: ${name}\n`;
+            body += `Email: ${email}\n`;
+            body += `Phone: ${phone}\n`;
+            body += `Date: ${formattedDate}\n`;
+            body += `Time: ${time}\n`;
+            if (childName) body += `Child's Name: ${childName}\n`;
+            if (notes) body += `\nNotes:\n${notes}\n`;
+            
+            // Open email
+            window.location.href = `mailto:sahu.devki@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success message
+            alert('✅ Your email app will now open. Please click SEND to confirm your appointment with Devki Sahu!');
         });
     </script>
 </body>
