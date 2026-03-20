@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devki Sahu - Teacher</title>
+    <title>Book an Appointment - Devki Sahu</title>
     <style>
         * {
             margin: 0;
@@ -14,374 +14,274 @@
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
+            background: linear-gradient(135deg, #FFF0F5, #FFE4E1);
+            min-height: 100vh;
         }
-        .navbar {
-            background: #B43E8F;
-            padding: 12px 20px;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        .nav-links li {
-            margin-left: 25px;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .nav-links a:hover {
-            color: #FFD700;
-        }
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497633762265-9d0c5d8b8b5b?w=1600');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        .hero h1 {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-        .hero .subtitle {
-            font-size: 28px;
-            margin-bottom: 30px;
+        .container {
             max-width: 800px;
-            padding: 0 20px;
-        }
-        .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            background: #FF6F61;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 20px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        .btn:hover {
-            background: transparent;
-            border: 2px solid white;
-        }
-        .btn-large {
-            display: inline-block;
-            padding: 20px 60px;
-            background: #B43E8F;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 24px;
-            margin-top: 20px;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        .btn-large:hover {
-            background: #FF6F61;
-            transform: scale(1.05);
-        }
-        .book-appointment {
-            padding: 80px 20px;
-            background: #FFE4E1;
-            text-align: center;
-        }
-        .book-appointment h2 {
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 20px;
-        }
-        .book-appointment p {
-            font-size: 22px;
-            color: #555;
-            margin-bottom: 30px;
-        }
-        .philosophy {
-            padding: 80px 20px;
-            text-align: center;
-            background: white;
-        }
-        .philosophy h2 {
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 20px;
-        }
-        .main-description {
-            font-size: 32px;
-            color: #FF6F61;
-            margin-bottom: 50px;
-            font-weight: bold;
-        }
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            max-width: 1200px;
             margin: 0 auto;
-            flex-wrap: wrap;
+            padding: 40px 20px;
         }
-        .feature {
-            flex: 1;
-            min-width: 250px;
-            padding: 30px;
-            background: #FFF0F5;
-            border-radius: 20px;
-            transition: transform 0.3s;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
         }
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-        .feature-icon {
+        .header h1 {
             font-size: 48px;
-            display: block;
-            margin-bottom: 20px;
-        }
-        .feature h3 {
-            font-size: 24px;
             color: #B43E8F;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
-        .feature p {
-            font-size: 16px;
+        .header p {
+            font-size: 20px;
             color: #666;
         }
-        .about {
-            padding: 80px 20px;
-            background: #FFF0F5;
-        }
-        .about h2 {
-            text-align: center;
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 50px;
-        }
-        .about-content {
-            display: flex;
-            gap: 50px;
-            max-width: 1100px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        .about-text p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            background: linear-gradient(145deg, #FFD700, #FF6F61);
-            height: 300px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        .contact {
-            padding: 80px 20px;
-            background: #FFE4E1;
-            text-align: center;
-        }
-        .contact h2 {
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 30px;
-        }
-        .contact-info {
+        .booking-card {
             background: white;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .contact-info p {
-            font-size: 22px;
-            margin: 15px 0;
-            color: #B43E8F;
-        }
-        .social-links {
-            margin-top: 30px;
-        }
-        .social-link {
-            display: inline-block;
-            margin: 0 10px;
-            padding: 10px 25px;
-            border: 2px solid #B43E8F;
-            color: #B43E8F;
-            text-decoration: none;
             border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            display: block;
             font-size: 18px;
+            font-weight: bold;
+            color: #B43E8F;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 2px solid #FFE4E1;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF6F61;
+            box-shadow: 0 0 0 3px rgba(255,111,97,0.1);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #B43E8F, #FF6F61);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
             transition: all 0.3s;
         }
-        .social-link:hover {
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(180,62,143,0.3);
+        }
+        .back-home {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .back-home a {
+            color: #B43E8F;
+            text-decoration: none;
+            font-size: 16px;
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #B43E8F;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        .back-home a:hover {
             background: #B43E8F;
             color: white;
         }
-        footer {
-            background: #B43E8F;
-            color: white;
+        .confirmation {
+            display: none;
             text-align: center;
-            padding: 30px;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            margin-top: 20px;
+        }
+        .confirmation.show {
+            display: block;
+        }
+        .confirmation h2 {
+            color: #B43E8F;
+            margin-bottom: 20px;
+        }
+        .confirmation p {
             font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .booking-form {
+            display: block;
+        }
+        .booking-form.hide {
+            display: none;
+        }
+        .error-message {
+            background: #ffe6e6;
+            color: #d63031;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
         }
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-                padding: 10px;
-            }
-            .nav-links {
-                margin-top: 10px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            .nav-links li {
-                margin: 8px 12px;
-            }
-            .hero h1 {
-                font-size: 50px;
-            }
-            .hero .subtitle {
-                font-size: 22px;
-            }
-            .main-description {
-                font-size: 24px;
-            }
-            .btn-large {
-                padding: 15px 40px;
-                font-size: 20px;
-            }
-            .about h2, .philosophy h2, .book-appointment h2, .contact h2 {
+            .header h1 {
                 font-size: 36px;
             }
-            .contact-info p {
-                font-size: 18px;
-            }
-        }
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 20px;
-            }
-            .hero h1 {
-                font-size: 40px;
-            }
-            .hero .subtitle {
-                font-size: 18px;
-            }
-            .btn, .btn-large {
-                padding: 12px 30px;
-                font-size: 18px;
+            .booking-card {
+                padding: 25px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">🌸 Devki Sahu</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Home Section -->
-    <section id="home" class="hero">
-        <div>
-            <h1>Devki Sahu</h1>
-            <p class="subtitle">An experienced teacher who can teach kids in an easy way with practical examples</p>
-            <a href="booking.html" target="_blank" class="btn">📅 Book an Appointment</a>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Book an Appointment</h1>
+            <p>Schedule a session with Devki Sahu</p>
         </div>
-    </section>
 
-    <!-- Book Appointment Section -->
-    <section id="book" class="book-appointment">
-        <h2>Book an Appointment</h2>
-        <p>Ready to start your child's learning journey? Schedule a session today!</p>
-        <a href="booking.html" target="_blank" class="btn-large">📚 Book Now</a>
-    </section>
+        <!-- Booking Form -->
+        <div id="bookingForm" class="booking-form">
+            <div class="booking-card">
+                <div id="errorMessage" class="error-message"></div>
+                <form id="appointmentForm" action="https://formspree.io/f/xgvayzgl" method="POST">
+                    <div class="form-group">
+                        <label>👤 Full Name</label>
+                        <input type="text" name="name" id="name" required placeholder="Enter your full name">
+                    </div>
 
-    <!-- Teaching Philosophy Section -->
-    <section class="philosophy">
-        <h2>My Teaching Approach</h2>
-        <p class="main-description">Help kids understand easily without stress. Learn with fun!</p>
-        <div class="features">
-            <div class="feature">
-                <span class="feature-icon">🧠</span>
-                <h3>No Stress Learning</h3>
-                <p>Gentle, encouraging approach that builds confidence</p>
+                    <div class="form-group">
+                        <label>📧 Email Address</label>
+                        <input type="email" name="email" id="email" required placeholder="Enter your email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>📱 Phone Number</label>
+                        <input type="tel" name="phone" id="phone" required placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label>📅 Select Date</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>⏰ Select Time</label>
+                        <select name="time" id="time" required>
+                            <option value="">Select a time</option>
+                            <option value="10:00 AM">10:00 AM</option>
+                            <option value="11:00 AM">11:00 AM</option>
+                            <option value="12:00 PM">12:00 PM</option>
+                            <option value="2:00 PM">2:00 PM</option>
+                            <option value="3:00 PM">3:00 PM</option>
+                            <option value="4:00 PM">4:00 PM</option>
+                            <option value="5:00 PM">5:00 PM</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>👧 Child's Name (if applicable)</label>
+                        <input type="text" name="child_name" id="childName" placeholder="Enter child's name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>📝 Additional Notes</label>
+                        <textarea name="notes" id="notes" placeholder="Any specific topics or questions you'd like to discuss?"></textarea>
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New Appointment Request - Devki Sahu">
+                    <input type="hidden" name="_replyto" id="replyto">
+                    
+                    <button type="submit" class="submit-btn">✅ Confirm Appointment</button>
+                </form>
             </div>
-            <div class="feature">
-                <span class="feature-icon">🎮</span>
-                <h3>Learn with Fun</h3>
-                <p>Games, activities, and practical examples</p>
-            </div>
-            <div class="feature">
-                <span class="feature-icon">💡</span>
-                <h3>Easy Understanding</h3>
-                <p>Complex topics made simple and clear</p>
+            <div class="back-home">
+                <a href="index.html">← Back to Home</a>
             </div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>About Devki</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>With years of experience in teaching, Devki Sahu has helped countless children discover the joy of learning. Her unique approach combines practical examples with fun activities to make every lesson memorable.</p>
-                <p>She believes that every child can learn anything when it's taught in the right way - with patience, creativity, and lots of encouragement.</p>
+        <!-- Confirmation Message -->
+        <div id="confirmation" class="confirmation">
+            <div class="booking-card">
+                <h2>🎉 Appointment Request Sent!</h2>
+                <p>Thank you for booking an appointment with Devki Sahu.</p>
+                <p>You will receive a confirmation email shortly with the details.</p>
+                <p><strong>📧 sahu.devki@gmail.com</strong></p>
+                <p>For any changes, please contact us directly.</p>
+                <button onclick="bookAnother()" class="submit-btn" style="margin-top: 20px;">📅 Book Another Appointment</button>
+                <div style="margin-top: 20px;">
+                    <a href="index.html" style="color: #B43E8F; text-decoration: none;">← Return to Homepage</a>
+                </div>
             </div>
-            <div class="about-image">
-                📸 Devki's Photo
-            </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Me</h2>
-        <div class="contact-info">
-            <p>📧 sahu.devki@gmail.com</p>
-            <p>📱 (555) 123-4567</p>
-            <p>📍 Your City, India</p>
-        </div>
-        <div class="social-links">
-            <a href="#" class="social-link">📘 Facebook</a>
-            <a href="#" class="social-link">📷 Instagram</a>
-            <a href="#" class="social-link">💼 LinkedIn</a>
-        </div>
-    </section>
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+        
+        // Set reply-to email
+        document.getElementById('replyto').value = document.getElementById('email')?.value || '';
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2024 Made with 💖 for Devki Sahu | Teaching with love and patience</p>
-    </footer>
+        // Handle form submission
+        document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            const errorDiv = document.getElementById('errorMessage');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    // Success - show confirmation
+                    document.getElementById('bookingForm').classList.add('hide');
+                    document.getElementById('confirmation').classList.add('show');
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                errorDiv.textContent = '❌ Something went wrong. Please try again or contact directly at sahu.devki@gmail.com';
+                errorDiv.classList.add('show');
+                setTimeout(() => {
+                    errorDiv.classList.remove('show');
+                }, 5000);
+            }
+        });
+        
+        function bookAnother() {
+            document.getElementById('bookingForm').classList.remove('hide');
+            document.getElementById('confirmation').classList.remove('show');
+            document.getElementById('appointmentForm').reset();
+        }
+    </script>
 </body>
 </html>
