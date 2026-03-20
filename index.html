@@ -17,7 +17,7 @@
         }
         .navbar {
             background: #B43E8F;
-            padding: 20px;
+            padding: 12px 20px;
             color: white;
             display: flex;
             justify-content: space-between;
@@ -27,7 +27,7 @@
             z-index: 100;
         }
         .logo {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
         }
         .nav-links {
@@ -35,12 +35,12 @@
             list-style: none;
         }
         .nav-links li {
-            margin-left: 30px;
+            margin-left: 25px;
         }
         .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
         }
         .nav-links a:hover {
             color: #FFD700;
@@ -158,6 +158,10 @@
             color: #B43E8F;
             margin-bottom: 15px;
         }
+        .feature p {
+            font-size: 16px;
+            color: #666;
+        }
         .about {
             padding: 80px 20px;
             background: #FFF0F5;
@@ -249,14 +253,15 @@
             .navbar {
                 flex-direction: column;
                 text-align: center;
+                padding: 10px;
             }
             .nav-links {
-                margin-top: 20px;
+                margin-top: 10px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
             .nav-links li {
-                margin: 10px 15px;
+                margin: 8px 12px;
             }
             .hero h1 {
                 font-size: 50px;
@@ -270,6 +275,27 @@
             .btn-large {
                 padding: 15px 40px;
                 font-size: 20px;
+            }
+            .about h2, .philosophy h2, .book-appointment h2, .contact h2 {
+                font-size: 36px;
+            }
+            .contact-info p {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero .subtitle {
+                font-size: 18px;
+            }
+            .btn, .btn-large {
+                padding: 12px 30px;
+                font-size: 18px;
             }
         }
     </style>
@@ -290,7 +316,7 @@
         <div>
             <h1>Devki Sahu</h1>
             <p class="subtitle">An experienced teacher who can teach kids in an easy way with practical examples</p>
-            <a href="#book" class="btn">📅 Book an Appointment</a>
+            <a href="booking.html" target="_blank" class="btn">📅 Book an Appointment</a>
         </div>
     </section>
 
@@ -298,7 +324,7 @@
     <section id="book" class="book-appointment">
         <h2>Book an Appointment</h2>
         <p>Ready to start your child's learning journey? Schedule a session today!</p>
-        <a href="#contact" class="btn-large">📚 Book Now</a>
+        <a href="booking.html" target="_blank" class="btn-large">📚 Book Now</a>
     </section>
 
     <!-- Teaching Philosophy Section -->
