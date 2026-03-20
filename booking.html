@@ -3,267 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book an Appointment - Devki Sahu</title>
+    <title>Book Appointment - Test</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
             background: linear-gradient(135deg, #FFF0F5, #FFE4E1);
-            min-height: 100vh;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .header h1 {
-            font-size: 48px;
-            color: #B43E8F;
-            margin-bottom: 10px;
-        }
-        .header p {
-            font-size: 20px;
-            color: #666;
-        }
-        .booking-card {
+        .form-container {
             background: white;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-        .form-group {
-            margin-bottom: 25px;
-        }
-        .form-group label {
-            display: block;
-            font-size: 18px;
-            font-weight: bold;
-            color: #B43E8F;
-            margin-bottom: 8px;
-        }
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        input, select, textarea {
             width: 100%;
-            padding: 12px 15px;
-            font-size: 16px;
-            border: 2px solid #FFE4E1;
-            border-radius: 10px;
-            transition: all 0.3s;
-            font-family: inherit;
+            padding: 10px;
+            margin: 10px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #FF6F61;
-            box-shadow: 0 0 0 3px rgba(255,111,97,0.1);
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #B43E8F, #FF6F61);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(180,62,143,0.3);
-        }
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        .back-home {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .back-home a {
-            color: #B43E8F;
-            text-decoration: none;
-            font-size: 16px;
-            display: inline-block;
-            padding: 10px 20px;
-            border: 2px solid #B43E8F;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-        .back-home a:hover {
+        button {
             background: #B43E8F;
             color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
         }
-        .confirmation {
-            display: none;
-            text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 30px;
-            margin-top: 20px;
+        button:hover {
+            background: #FF6F61;
         }
-        .confirmation.show {
-            display: block;
-        }
-        .confirmation h2 {
-            color: #B43E8F;
-            margin-bottom: 20px;
-        }
-        .confirmation p {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        .booking-form {
-            display: block;
-        }
-        .booking-form.hide {
-            display: none;
-        }
-        .error-message {
-            background: #ffe6e6;
-            color: #d63031;
+        .success {
+            background: #d4edda;
+            color: #155724;
             padding: 15px;
             border-radius: 10px;
             margin-bottom: 20px;
             display: none;
         }
-        .error-message.show {
-            display: block;
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
         }
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 36px;
-            }
-            .booking-card {
-                padding: 25px;
-            }
+        h1 {
+            color: #B43E8F;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>📚 Book an Appointment</h1>
-            <p>Schedule a session with Devki Sahu</p>
-        </div>
-
-        <!-- Booking Form -->
-        <div id="bookingForm" class="booking-form">
-            <div class="booking-card">
-                <div id="errorMessage" class="error-message"></div>
-                <form id="appointmentForm" action="https://formspree.io/f/mgonqdwv" method="POST">
-                    <div class="form-group">
-                        <label>👤 Full Name</label>
-                        <input type="text" name="name" id="name" required placeholder="Enter your full name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>📧 Your Email</label>
-                        <input type="email" name="email" id="email" required placeholder="Enter your email">
-                    </div>
-
-                    <div class="form-group">
-                        <label>📱 Phone Number</label>
-                        <input type="tel" name="phone" id="phone" required placeholder="Enter your phone number">
-                    </div>
-
-                    <div class="form-group">
-                        <label>📅 Select Date</label>
-                        <input type="date" name="date" id="date" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>⏰ Select Time</label>
-                        <select name="time" id="time" required>
-                            <option value="">Select a time</option>
-                            <option value="10:00 AM">10:00 AM</option>
-                            <option value="11:00 AM">11:00 AM</option>
-                            <option value="12:00 PM">12:00 PM</option>
-                            <option value="2:00 PM">2:00 PM</option>
-                            <option value="3:00 PM">3:00 PM</option>
-                            <option value="4:00 PM">4:00 PM</option>
-                            <option value="5:00 PM">5:00 PM</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>👧 Child's Name (if applicable)</label>
-                        <input type="text" name="child_name" id="childName" placeholder="Enter child's name">
-                    </div>
-
-                    <div class="form-group">
-                        <label>📝 Additional Notes</label>
-                        <textarea name="notes" id="notes" placeholder="Any specific topics or questions you'd like to discuss?"></textarea>
-                    </div>
-
-                    <input type="hidden" name="_subject" value="New Appointment Request - Devki Sahu">
-                    <input type="hidden" name="_replyto" id="replyto">
-                    
-                    <button type="submit" id="submitBtn" class="submit-btn">✅ Send Appointment Request</button>
-                </form>
-            </div>
-            <div class="back-home">
-                <a href="index.html">← Back to Home</a>
-            </div>
-        </div>
-
-        <!-- Confirmation Message -->
-        <div id="confirmation" class="confirmation">
-            <div class="booking-card">
-                <h2>🎉 Appointment Request Sent!</h2>
-                <p>Thank you for booking an appointment with Devki Sahu.</p>
-                <p>You will receive a confirmation email shortly.</p>
-                <p><strong>📧 sahu.devki@gmail.com</strong></p>
-                <p>For any changes, please contact us directly.</p>
-                <button onclick="bookAnother()" class="submit-btn" style="margin-top: 20px;">📅 Book Another Appointment</button>
-                <div style="margin-top: 20px;">
-                    <a href="index.html" style="color: #B43E8F; text-decoration: none;">← Return to Homepage</a>
-                </div>
-            </div>
-        </div>
+    <div class="form-container">
+        <h1>📚 Book an Appointment</h1>
+        <p>Fill out this form to request an appointment with Devki Sahu.</p>
+        
+        <div id="successMsg" class="success">✅ Appointment request sent! Check sahu.devki@gmail.com</div>
+        <div id="errorMsg" class="error">❌ Error sending. Please try again or email sahu.devki@gmail.com directly.</div>
+        
+        <form id="contactForm" action="https://formspree.io/f/mgonqdwv" method="POST">
+            <input type="text" name="name" placeholder="Your Full Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <input type="date" name="date" required>
+            <select name="time" required>
+                <option value="">Select Time</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>2:00 PM</option>
+                <option>3:00 PM</option>
+                <option>4:00 PM</option>
+            </select>
+            <textarea name="notes" rows="3" placeholder="Additional notes..."></textarea>
+            <input type="hidden" name="_subject" value="New Appointment Request">
+            <button type="submit">Send Appointment Request</button>
+        </form>
+        <p style="margin-top: 20px;"><a href="index.html">← Back to Home</a></p>
     </div>
 
     <script>
-        // Set minimum date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('date').min = today;
+        const form = document.getElementById('contactForm');
+        const successMsg = document.getElementById('successMsg');
+        const errorMsg = document.getElementById('errorMsg');
         
-        // Set reply-to email
-        document.getElementById('replyto').value = document.getElementById('email')?.value || '';
-        
-        // Update replyto when email changes
-        document.getElementById('email').addEventListener('input', function() {
-            document.getElementById('replyto').value = this.value;
-        });
-
-        // Handle form submission
-        document.getElementById('appointmentForm').addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const form = this;
-            const submitBtn = document.getElementById('submitBtn');
-            const errorDiv = document.getElementById('errorMessage');
-            
-            // Disable button and show loading
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '⏳ Sending...';
+            // Hide messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
             
             const formData = new FormData(form);
             
@@ -277,31 +111,15 @@
                 });
                 
                 if (response.ok) {
-                    // Success - show confirmation
-                    document.getElementById('bookingForm').classList.add('hide');
-                    document.getElementById('confirmation').classList.add('show');
+                    successMsg.style.display = 'block';
+                    form.reset();
                 } else {
-                    throw new Error('Form submission failed');
+                    errorMsg.style.display = 'block';
                 }
             } catch (error) {
-                errorDiv.textContent = '❌ Something went wrong. Please try again or contact directly at sahu.devki@gmail.com';
-                errorDiv.classList.add('show');
-                setTimeout(() => {
-                    errorDiv.classList.remove('show');
-                }, 5000);
-            } finally {
-                // Re-enable button
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '✅ Send Appointment Request';
+                errorMsg.style.display = 'block';
             }
         });
-        
-        function bookAnother() {
-            document.getElementById('bookingForm').classList.remove('hide');
-            document.getElementById('confirmation').classList.remove('show');
-            document.getElementById('appointmentForm').reset();
-            document.getElementById('errorMessage').classList.remove('show');
-        }
     </script>
 </body>
 </html>
